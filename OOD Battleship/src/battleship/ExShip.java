@@ -22,7 +22,6 @@ public class ExShip implements Ship {
 		return array;
 	}
 
-	@Override
 	public Space originSpace() {
 		return origin;
 	}
