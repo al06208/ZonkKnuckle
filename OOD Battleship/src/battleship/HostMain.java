@@ -28,8 +28,6 @@ public class HostMain extends Main {
 	
 	String msgout = "X|X|error";
 	String msgin = "";
-	//TODO: remove temp command
-	Command temp;
 	
 	@Override
 	public void start(Stage primStage) throws Exception {
@@ -120,8 +118,7 @@ public class HostMain extends Main {
 						//if the command received is for us, we want to execute it
 						if(splot.equals("fromClientmain")){
 							//execute the command and store the response if it's from the right sender
-							temp = this.fact.makeCommand(this, msgin);
-							msgout = temp.execute();
+							msgout = this.fact.makeCommand(this, msgin).execute();
 						}
 						else {
 							splat = "response"; //force it not to run if it's not from the right sender
