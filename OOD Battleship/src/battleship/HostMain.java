@@ -21,6 +21,7 @@ public class HostMain extends Main {
 	static DataInputStream din;
 	static DataOutputStream dout;
 	int port;
+	Command currentCommand;
 	
 	public static void main(String[] args) {
 		launch();
@@ -118,7 +119,8 @@ public class HostMain extends Main {
 						//if the command received is for us, we want to execute it
 						if(splot.equals("fromClientmain")){
 							//execute the command and store the response if it's from the right sender
-							msgout = this.fact.makeCommand(this, msgin).execute();
+							currentCommand = this.fact.makeCommand(this, msgin);
+							msgout = currentCommand.execute();
 						}
 						else {
 							splat = "response"; //force it not to run if it's not from the right sender

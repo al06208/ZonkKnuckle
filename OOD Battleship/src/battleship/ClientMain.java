@@ -24,6 +24,7 @@ public class ClientMain extends Main {
 	String msgout = "X|X|error";
 	int port;
 	String ipAddress;
+	Command currentCommand;
 
 	//Launches the application when run
 	public static void main(String[] args0) {
@@ -92,8 +93,8 @@ public class ClientMain extends Main {
 						splot = splitArr[4];
 						//if the command received is for us, we want to execute it
 						if(splot.equals("fromHostmain")){
-							//execute the command and store the response if it's from the right sender
-							msgout = this.fact.makeCommand(this, msgin).execute();
+							currentCommand = this.fact.makeCommand(this, msgin);
+							msgout = currentCommand.execute();
 						}
 						else {
 							splat = "response"; //force it not to run if it's not
